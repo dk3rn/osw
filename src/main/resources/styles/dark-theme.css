@@ -1,0 +1,290 @@
+
+* {
+    -fx-primary : #2A2E37;
+    -fx-secondary : #FFFF8D;
+    -fx-primarytext : #B2B2B2;
+    -fx-blue: #1976D2;
+    -fx-red: #FF0000;
+}
+
+.root{
+    -fx-background-color: -fx-primary;
+    -fx-padding: 3;
+}
+
+.padding-spacing {
+    -fx-spacing: 3;
+
+}
+
+.glyph-icon
+{
+    -fx-fill: -fx-primarytext;
+}
+
+.button{
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-font-size: 10pt;
+
+        
+}
+
+.button-other{
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-font-size: 10pt;
+    -fx-padding: 3 0 3 0;
+    -fx-font-size: 12;
+        
+
+}
+
+.text-field{
+        -fx-font-size: 12;
+}
+
+
+
+.button:hover{
+    -fx-border-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+.text-field
+{
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size : 13pt;
+    -jfx-focus-color: -fx-secondary;
+    -fx-text-fill: derive(-fx-secondary, 20%);
+}
+
+/*Login Screen Specific*/
+
+
+.wrong-credentials
+{
+    -jfx-unfocus-color: -fx-red;
+    -jfx-focus-color: -fx-red;
+}
+
+/*Main Screen CSS Styling starts here*/
+
+/*TablPane styling*/
+.tab{
+    -fx-background-color: -fx-primary;
+    -fx-pref-width : 350;
+    -fx-pref-height : 60;
+}
+
+.tab-header-background{
+    -fx-background-color: -fx-primary;
+}
+
+/*Menu bar Styling*/
+.menu-bar{
+    -fx-base : -fx-primary;
+    -fx-background-color: -fx-primary;
+}
+
+.context-menu
+{
+    -fx-background-color:  derive(-fx-primary, 20%);
+}
+
+/*Hamburger Styling*/
+.jfx-hamburger-icon{
+    -fx-spacing: 7;
+}
+
+
+.jfx-hamburger-icon StackPane
+{
+    -fx-background-color: -fx-secondary;
+    -fx-background-radius: 5px;
+}
+
+/*Toolbar buttons*/
+.toolbar-button
+{
+    -fx-background-color: derive(-fx-primary, 20%);
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: -fx-primary;
+}
+.toolbar-button:hover
+{
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+.toolbar-button:hover .glyph-icon
+{
+    -fx-fill: -fx-primary;
+}
+
+/*Text styling*/
+.main-text
+{
+    -fx-fill: -fx-secondary;
+    -fx-font-size: 14pt;
+    -fx-text-alignment: center;
+}
+
+.submission-container{
+    -fx-background-color: derive(-fx-primary, 10%);
+}
+
+/*Dialog styling*/
+.dialog-button{
+    -fx-background-color: -fx-blue;
+    -fx-border-color: -fx-blue;
+    -fx-text-fill: white;
+}
+
+.dialog-button:hover{
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-primary;
+    -fx-text-fill: white;
+}
+
+.jfx-layout-actions
+{
+    -fx-hgap:8;
+}
+
+/*Chart Styling*/
+.data0.chart-pie{
+    -fx-pie-color: -fx-secondary;
+    -fx-border-color: derive(-fx-secondary, -30%);
+}
+.data1.chart-pie{
+    -fx-pie-color: -fx-blue;
+    -fx-border-color: derive(-fx-blue, -30%)
+}
+.chart-pie-label
+{
+    -fx-fill : -fx-secondary;
+}
+
+/*About window*/
+.about-text{
+    -fx-fill: -fx-secondary;
+}
+
+.about-button{
+    -fx-border-color: transparent;
+}
+
+/*Custom window background*/
+.custom-pane{
+    -fx-background-color: derive(-fx-primary, 5%);
+}
+
+
+
+/* peters stuff */
+
+.label_static_tg {
+    -fx-font-weight: bold;
+    -fx-background-color: orange;
+    -fx-background-radius: 3;
+    -fx-graphic-text-gap: 2;
+    -fx-padding: 2;
+    
+}
+
+.activeButton{
+    -fx-background-color: green;
+}
+
+.inactiveButton{
+    -fx-background-color: lightgray;
+}
+
+
+.hbox_top{
+    -fx-spacing: 3;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.toggle_group{
+    -fx-spacing: 3;
+    -fx-alignment: CENTER_LEFT;
+}
+.label_dynamic_tg {
+    -fx-font-weight: bold;
+    -fx-background-color: lightgreen;
+    -fx-background-radius: 3;
+    -fx-graphic-text-gap: 2;
+    -fx-padding: 2;
+    
+}
+/* This is always the last called TG, set by the Brandmeister Network */
+.label_autostatic_tg {
+    -fx-font-weight: bold;
+    -fx-background-color: lightcoral;
+    -fx-background-radius: 3;
+    -fx-graphic-text-gap: 2;
+    -fx-padding: 2;
+    
+}
+
+
+.button_privatecall {
+    -fx-font-weight: bold;
+    -fx-background-color: lightcoral;
+    -fx-background-radius: 3;
+    -fx-graphic-text-gap: 2;
+    -fx-padding: 2;
+    
+}
+
+.flowpane_buttons {
+    -fx-background-color: grey;
+    -fx-vgap: 3;
+    -fx-hgap: 5;
+}
+
+
+
+
+
+.iphone {
+    -fx-background-color: 
+        #a6b5c9,
+        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),
+        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 7 30 7 30;
+    -fx-text-fill: #242d35;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 12px;
+    -fx-text-fill: white;
+}
+
+.shiny-orange {
+    -fx-background-color: 
+        linear-gradient(#ffd65b, #e68400),
+        linear-gradient(#ffef84, #f2ba44),
+        linear-gradient(#ffea6a, #efaa22),
+        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
+
+
+
