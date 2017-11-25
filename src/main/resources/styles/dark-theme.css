@@ -9,12 +9,19 @@
 
 .root{
     -fx-background-color: -fx-primary;
-    -fx-padding: 3;
+
 }
 
 .padding-spacing {
-    -fx-spacing: 3;
+    -fx-padding: 5;
+    -fx-spacing: 5;
 
+
+}
+
+.flowpane{
+    -fx-hgap: 2;
+    -fx-vgap:2;
 }
 
 .glyph-icon

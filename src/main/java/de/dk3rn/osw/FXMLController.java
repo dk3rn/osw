@@ -39,6 +39,10 @@ public class FXMLController implements Initializable {
     private Button btnCalltypeGC;
     @FXML
     private Button btnCalltypePC;
+    @FXML
+    private Button btn_redirect;
+    @FXML
+    private Button btn_settings;
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
