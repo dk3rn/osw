@@ -13,15 +13,15 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        //stage.initStyle(StageStyle.UTILITY);
+        stage.initStyle(StageStyle.UTILITY);
         //stage.initStyle(StageStyle.UNIFIED);
                 
         
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));   
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles/dark-theme.css");    
+        //scene.getStylesheets().add("/styles/dark-theme.css");    
 
-        stage.setTitle("OpenSpot Widget");
+        stage.setTitle("OpenSpot Widget DK3RN/DO8OD");
         stage.setScene(scene);
         stage.show();
         
@@ -38,6 +38,9 @@ public class MainApp extends Application {
         ConfigX.getInstance().setRoot1(stage2);
 
         // stage2.show();
+        
+        
+        
 
     }
 

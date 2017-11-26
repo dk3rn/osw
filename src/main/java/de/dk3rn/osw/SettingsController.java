@@ -52,46 +52,35 @@ public class SettingsController implements Initializable {
     private TextField tf_name;
     @FXML
     private TextField tf_tgdmrid;
+    @FXML
+    private TextField tf_reRouting;
+    @FXML
+    private Button btn_setReRouting;
 
-    
-    
-    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-       
-        
-       // Setting ConConfig 
-       ConfigX xx =ConfigX.getInstance();
-       tf_dmrid.setText(xx.getDmrid());
-       tf_pw.setText(xx.getPassword());
-       tf_ip.setText(xx.getIp());
-  
+
+        // Setting ConConfig 
+        ConfigX xx = ConfigX.getInstance();
+        tf_dmrid.setText(xx.getDmrid());
+        tf_pw.setText(xx.getPassword());
+        tf_ip.setText(xx.getIp());
+        tf_reRouting.setText(xx.getReRoute());
+
         // Playing with Calls / TGs
         ArrayList al = xx.getCalls();
         ArrayList hbl = new Tools().copyToHBoxList(al);
         ObservableList myObservableList = FXCollections.observableList(hbl);
         lv_tgs.setItems(myObservableList);
-        
+
         // ChoiceBox
         cb_calltype.setItems(FXCollections.observableArrayList("Group Call", "Private Call"));
         cb_calltype.getSelectionModel().select(0);
 
-
-
-       
-
-       
-   
-
     }
-
-    
-    
-
 
     @FXML
     private void removeTGFromList(ActionEvent event) {
@@ -99,21 +88,13 @@ public class SettingsController implements Initializable {
         System.out.println(selectedItem);
         lv_tgs.getItems().remove(selectedItem);
         // So far it works
-       
+
         ArrayList calls = ConfigX.getInstance().getCalls();
-        
-
-
 
         //copy result to calls -- das ist ein recht wilder aufrunf... mal gucken
         ArrayList al = new Tools().copyHBoxListToList(lv_tgs.getItems());
         ConfigX.getInstance().setCalls(al);
-        
-        
-        
-        
-        
-        
+
         ConfigX.getInstance().addCallsToPane();
     }
 
@@ -123,12 +104,16 @@ public class SettingsController implements Initializable {
         x.setPassword(tf_pw.getText());
         x.setIp(tf_ip.getText());
         x.setDmrid(tf_dmrid.getText());
-        
+        x.setReRoute(tf_reRouting.getText());
+        x.setReRoute(tf_reRouting.getText());
+
+ 
+
         x.writeConConfig();
         x.genToken();
         x.writeCallConfig(x.getCalls());
         x.initialize();
-  
+
     }
 
     @FXML
@@ -136,31 +121,31 @@ public class SettingsController implements Initializable {
         ObservableList ol = lv_tgs.getItems();
         int dmrid = Integer.parseInt(tf_tgdmrid.getText());
         int type = 0;
-        
+
         String selectedItem = (String) cb_calltype.getSelectionModel().getSelectedItem();
         System.out.println(selectedItem);
-        
-        if (selectedItem.equals("Private Call"))
-        {
-            type = 1; 
-        }
-        else
-        {
+
+        if (selectedItem.equals("Private Call")) {
+            type = 1;
+        } else {
             type = 0;
         }
-        
-        HBoxCell hbc = new HBoxCell(tf_name.getText(), dmrid, type); 
+
+        HBoxCell hbc = new HBoxCell(tf_name.getText(), dmrid, type);
         ol.add(hbc);
-       
+
         ConfigX cX = ConfigX.getInstance();
         cX.setCalls(new Tools().copyHBoxListToList(ol));
         cX.writeCallConfig(cX.getCalls());
         cX.addCallsToPane();
-        
-        
-        
-        
-        
+
+    }
+
+    @FXML
+    private void setReRouting(ActionEvent event) {
+        ConfigX.getInstance().setReRoute(tf_reRouting.getText());
+        new OsFunctions().reRouting(Integer.parseInt(ConfigX.getInstance().getReRoute()));
+        ConfigX.getInstance().setReRoutingLabel(tf_reRouting.getText());
     }
 
 }

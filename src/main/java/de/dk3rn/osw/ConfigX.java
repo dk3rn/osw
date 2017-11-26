@@ -57,6 +57,24 @@ public class ConfigX {
     private String password;
     private String dmrid;
     private ReadBrandmeisterTGs rbmTG;
+    private String reRoute;
+    private Label lbl_reRoute;
+
+    public Label getLbl_reRoute() {
+        return lbl_reRoute;
+    }
+
+    public void setLbl_reRoute(Label lbl_reRoute) {
+        this.lbl_reRoute = lbl_reRoute;
+    }
+
+    public String getReRoute() {
+        return reRoute;
+    }
+
+    public void setReRoute(String reRoute) {
+        this.reRoute = reRoute;
+    }
 
     public ReadBrandmeisterTGs getRbmTG() {
         return rbmTG;
@@ -144,8 +162,11 @@ public class ConfigX {
     
     public void initialize(){
         try {     
+            
+            
             readConConfig();
             this.calls = readCallConfig();
+            setReRoutingLabel(this.getReRoute());
 
             httph = HttpHandling.getInstance();
             startGenJWT();
@@ -157,15 +178,34 @@ public class ConfigX {
         } 
     }
     
+    
+    public void setReRoutingLabel(final String txt) {
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+
+                if (!txt.equals("0")) {
+                    lbl_reRoute.setVisible(true);
+                    lbl_reRoute.setText("Rerouting TG9 to: " + txt);
+                } else {
+                    lbl_reRoute.setVisible(false);
+                }
+
+            }
+        });
+
+    }
+    
+    
     private void readConConfig() throws IOException{       
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> jsonMap = mapper.readValue(new File("osw_connection.config"), new TypeReference<Map<String,Object>>(){});
         ip = jsonMap.get("ip").toString();
         password = jsonMap.get("password").toString();
         dmrid = jsonMap.get("dmrid").toString();
-        
-        
-        
+        reRoute = jsonMap.get("reroute").toString();
+          
     } 
   
 //    // get call button with specific fxid
@@ -195,6 +235,7 @@ public class ConfigX {
         jsonMap.put("ip", ip);
         jsonMap.put("password", password);
         jsonMap.put("dmrid",dmrid);
+        jsonMap.put("reroute", reRoute);
         
         try {
             mapper.writeValue(new File("osw_connection.config"), jsonMap);
@@ -203,17 +244,6 @@ public class ConfigX {
         }
     }
     
-    // only used once to create initial config file
-    // never called during normal operation (this was used during development)
-    public void initialCallConfigWrite(){
-        ArrayList<CallContainer> calls = new ArrayList();
-        // Add some TGs
-        calls.add(new CallContainer(262, 0,"-262--"));
-        calls.add(new CallContainer(26200, 0,"-26200--"));
-        calls.add(new CallContainer(26299, 0,"-26299--"));
-
-        writeCallConfig(calls);
-    }
     
     public void writeCallConfig(ArrayList<CallContainer> calls){  
         ObjectMapper mapper = new ObjectMapper(); 

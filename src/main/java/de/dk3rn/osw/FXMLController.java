@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
@@ -37,9 +38,9 @@ public class FXMLController implements Initializable {
     @FXML
     private Button btnCalltypePC;
     @FXML
-    private Button btn_redirect;
-    @FXML
     private Button btn_settings;
+    @FXML
+    private Label lbl_reRoute;
     
 
 
@@ -68,6 +69,7 @@ public class FXMLController implements Initializable {
         ConfigX.getInstance().setFlowPaneCalls(flowPaneCalls);
         ConfigX.getInstance().initialize();
         ConfigX.getInstance().addCallsToPane();
+        ConfigX.getInstance().setLbl_reRoute(lbl_reRoute);
         
         
         // set group call active

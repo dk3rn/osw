@@ -18,6 +18,11 @@
     
 }
 
+.justtextondark{
+    -fx-text-fill:#5877a2;
+    -fx-padding: 5;
+}
+
 .listview .label{
     -fx-background-color: -fx-primary;
     -fx-text-fill: white;
