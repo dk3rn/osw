@@ -56,7 +56,17 @@
     -fx-background-radius: 5px;
     -fx-font-size: 10pt;
     -fx-padding: 2 2  2 2;
-        
+
+}
+
+.button-other-active{
+    -fx-text-fill: -fx-primary;
+    -fx-background-color: -fx-secondary;
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-font-size: 10pt;
+    -fx-padding: 2 2  2 2;
 
 }
 

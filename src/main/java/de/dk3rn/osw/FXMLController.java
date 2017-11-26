@@ -91,9 +91,11 @@ public class FXMLController implements Initializable {
     private void btnCalltypeGC(ActionEvent event) {
 //        btnCalltypeGC.getStyleClass().add("activeButton");
 //        btnCalltypePC.getStyleClass().add("inactiveButton");
-        
-        btnCalltypeGC.setStyle("-fx-background-color: green");
-        btnCalltypePC.setStyle("-fx-background-color: grey");
+
+        btnCalltypeGC.getStyleClass().clear();
+        btnCalltypeGC.getStyleClass().add("button-other-active");
+        btnCalltypePC.getStyleClass().clear();
+        btnCalltypePC.getStyleClass().add("button-other");
         
         calltype = 0; //groupcall
     }
@@ -103,8 +105,10 @@ public class FXMLController implements Initializable {
 //        btnCalltypePC.getStyleClass().add("activeButton");
 //        btnCalltypeGC.getStyleClass().add("inactiveButton");
         
-        btnCalltypePC.setStyle("-fx-background-color: green");
-        btnCalltypeGC.setStyle("-fx-background-color: grey");
+        btnCalltypePC.getStyleClass().clear();
+        btnCalltypePC.getStyleClass().add("button-other-active");
+        btnCalltypeGC.getStyleClass().clear();
+        btnCalltypeGC.getStyleClass().add("button-other");
         
         
         calltype = 1; // privateCall
