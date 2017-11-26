@@ -6,16 +6,22 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class FXMLController implements Initializable {
 
@@ -26,6 +32,7 @@ public class FXMLController implements Initializable {
     private FlowPane flowPaneCalls;
 
     ReadBrandmeisterTGs rbmTG;
+    
     @FXML
     private HBox hbox_top;
 
@@ -43,6 +50,8 @@ public class FXMLController implements Initializable {
     private Button btn_redirect;
     @FXML
     private Button btn_settings;
+    
+
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
@@ -61,12 +70,13 @@ public class FXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         rbmTG = new ReadBrandmeisterTGs();
+        ConfigX.getInstance().setRbmTG(rbmTG);
         rbmTG.refreshTGDisplay(hbox_tgs);
 
         ConfigX.getInstance().setHbox_tgs(hbox_tgs);
         ConfigX.getInstance().setFlowPaneCalls(flowPaneCalls);
         ConfigX.getInstance().initialize();
-        addCallsToPane();
+        ConfigX.getInstance().addCallsToPane();
 
     }
 
@@ -74,41 +84,7 @@ public class FXMLController implements Initializable {
     private void flowpaneButtons(MouseEvent event) {
     }
 
-    // addButtons
-    public void addCallsToPane() {
 
-        ConfigX cx = ConfigX.getInstance();
-        ArrayList<CallContainer> acc = cx.getCalls();
-        Iterator<CallContainer> iter = acc.iterator();
-        while (iter.hasNext()) {
-            final CallContainer cc = iter.next();
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-
-                    Button x = new Button(cc.getCaption());
-                    x.getStyleClass().add("button_groupcall");
-
-                    x.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent e) {
-                            new OsFunctions().quickCall(cc.getDmrid(), cc.getType());
-                            if (cc.getDmrid() == 4000) {
-                                hbox_tgs.getChildren().clear();
-                                rbmTG.setAutostaticTG(null);
-
-                            }
-                        }
-                    });
-
-                    flowPaneCalls.getChildren().add(x);
-
-                }
-            });
-
-        }
-
-    }
 
 
     @FXML
@@ -134,6 +110,12 @@ public class FXMLController implements Initializable {
         calltype = 1; // privateCall
     }
 
-}
+    @FXML
+    private void changeSettings(ActionEvent event) {
+        ConfigX.getInstance().getRoot1().show();
 
+        
+    }
+
+}
 

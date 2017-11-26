@@ -19,11 +19,26 @@ public class MainApp extends Application {
         
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));   
         Scene scene = new Scene(root);
-        //scene.getStylesheets().add("/styles/dark-theme.css");    
+        scene.getStylesheets().add("/styles/dark-theme.css");    
 
         stage.setTitle("OpenSpot Widget");
         stage.setScene(scene);
         stage.show();
+        
+        
+        
+
+        // create Stage
+        Parent root1 = FXMLLoader.load(getClass().getResource("/fxml/Settings.fxml"));
+        Scene scene2 = new Scene(root1);
+        //scene.getStylesheets().add("/styles/dark-theme.css");
+        Stage stage2 = new Stage();
+        stage2.setTitle("OpenSpot Widget Settings");
+        stage2.setScene(scene2);
+        ConfigX.getInstance().setRoot1(stage2);
+
+        // stage2.show();
+
     }
 
     /**

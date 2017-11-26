@@ -13,10 +13,9 @@ public class CallContainer {
     
     // ---- Constructors ----
     public CallContainer(){}
-    public CallContainer(int dmrid, int type, String fxid, String caption){
+    public CallContainer(int dmrid, int type, String caption){
         this.caption = caption;
         this.dmrid = dmrid;
-        this.fxid = fxid;
         this.type = type;
     }
     
@@ -24,7 +23,6 @@ public class CallContainer {
     // ---- Class Variables including Getter/Setter ----
     private int dmrid; // TG or Reflector Number
     private int type; // 0: Group Call, 1: Private Call
-    private String fxid; 
     private String caption; // Caption of the button
 
     // --- 
@@ -45,13 +43,6 @@ public class CallContainer {
         this.type = type;
     }
 
-    public String getFxid() {
-        return fxid;
-    }
-
-    public void setFxid(String fxid) {
-        this.fxid = fxid;
-    }
 
     public String getCaption() {
         return caption;

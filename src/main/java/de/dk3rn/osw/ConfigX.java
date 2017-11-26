@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
@@ -55,11 +56,46 @@ public class ConfigX {
     // ---------- Instance Variables -----------------------------------------
     private String password;
     private String dmrid;
+    private ReadBrandmeisterTGs rbmTG;
+
+    public ReadBrandmeisterTGs getRbmTG() {
+        return rbmTG;
+    }
+
+    public void setRbmTG(ReadBrandmeisterTGs rbmTG) {
+        this.rbmTG = rbmTG;
+    }
+    Stage root1;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Stage getRoot1() {
+        return root1;
+    }
+
+    public void setRoot1(Stage root1) {
+        this.root1 = root1;
+    }
+    
 
     public String getDmrid() {
         return dmrid;
     }
     private String ip;
+
+    public void setDmrid(String dmrid) {
+        this.dmrid = dmrid;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
     private String jwt;
     private HttpHandling httph;
     private ArrayList<CallContainer> calls;
@@ -127,21 +163,24 @@ public class ConfigX {
         ip = jsonMap.get("ip").toString();
         password = jsonMap.get("password").toString();
         dmrid = jsonMap.get("dmrid").toString();
+        
+        
+        
     } 
   
-    // get call button with specific fxid
-    public CallContainer getCall(String fxid){
-        Iterator<CallContainer> it = calls.iterator();
-        
-        while(it.hasNext()){
-            CallContainer cc = it.next();
-            if(cc.getFxid().equals(fxid)){
-                return cc;
-            }
-        }
-
-        return null;
-    }
+//    // get call button with specific fxid
+//    public CallContainer getCall(String fxid){
+//        Iterator<CallContainer> it = calls.iterator();
+//        
+//        while(it.hasNext()){
+//            CallContainer cc = it.next();
+//            if(cc.getFxid().equals(fxid)){
+//                return cc;
+//            }
+//        }
+//
+//        return null;
+//    }
 
 
 
@@ -153,8 +192,9 @@ public class ConfigX {
         ObjectMapper mapper = new ObjectMapper(); 
        
         Map<String, String> jsonMap = new HashMap();
-        jsonMap.put("ip", "192.168.178.152");
-        jsonMap.put("password", "openspot");
+        jsonMap.put("ip", ip);
+        jsonMap.put("password", password);
+        jsonMap.put("dmrid",dmrid);
         
         try {
             mapper.writeValue(new File("osw_connection.config"), jsonMap);
@@ -168,9 +208,9 @@ public class ConfigX {
     public void initialCallConfigWrite(){
         ArrayList<CallContainer> calls = new ArrayList();
         // Add some TGs
-        calls.add(new CallContainer(262, 0, "btn262","-262--"));
-        calls.add(new CallContainer(26200, 0, "btn26200","-26200--"));
-        calls.add(new CallContainer(26299, 0, "btn26299","-26299--"));
+        calls.add(new CallContainer(262, 0,"-262--"));
+        calls.add(new CallContainer(26200, 0,"-26200--"));
+        calls.add(new CallContainer(26299, 0,"-26299--"));
 
         writeCallConfig(calls);
     }
@@ -239,5 +279,43 @@ public class ConfigX {
          
          
      }
+     
+         // addButtons
+    public void addCallsToPane() {
+
+        flowPaneCalls.getChildren().clear();
+
+        ConfigX cx = ConfigX.getInstance();
+        ArrayList<CallContainer> acc = cx.getCalls();
+        Iterator<CallContainer> iter = acc.iterator();
+        while (iter.hasNext()) {
+            final CallContainer cc = iter.next();
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+
+                    Button x = new Button(cc.getCaption());
+                    x.getStyleClass().add("button_groupcall");
+
+                    x.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent e) {
+                            new OsFunctions().quickCall(cc.getDmrid(), cc.getType());
+                            if (cc.getDmrid() == 4000) {
+                                hbox_tgs.getChildren().clear();
+                                rbmTG.setAutostaticTG(null);
+
+                            }
+                        }
+                    });
+
+                    flowPaneCalls.getChildren().add(x);
+
+                }
+            });
+
+        }
+
+    }
      
 }

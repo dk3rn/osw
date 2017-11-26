@@ -12,16 +12,24 @@
 
 }
 
+.label_input{
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: -fx-primarytext;
+    
+}
+
 .padding-spacing {
     -fx-padding: 5;
     -fx-spacing: 5;
 
-
 }
 
 .flowpane{
-    -fx-hgap: 2;
-    -fx-vgap:2;
+    -fx-hgap: 5;
+    -fx-vgap: 5;
+    -fx-padding: 5;
+    -fx-spacing: 5;
+    -fx-background-color: -fx-primary;
 }
 
 .glyph-icon
@@ -44,10 +52,10 @@
     -fx-text-fill: -fx-primarytext;
     -fx-background-color: -fx-primary;
     -fx-border-color: -fx-secondary;
-    -fx-border-radius: 10px;
-    -fx-background-radius: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
     -fx-font-size: 10pt;
-    -fx-padding: 3 0 3 0;
+    -fx-padding: 2 2  2 2;
     -fx-font-size: 12;
         
 
@@ -57,6 +65,15 @@
         -fx-font-size: 12;
 }
 
+.choice-box .label {
+    -fx-text-fill: white; 
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 2 2  2 2;
+}
 
 
 .button:hover{
@@ -73,8 +90,6 @@
     -fx-text-fill: derive(-fx-secondary, 20%);
 }
 
-/*Login Screen Specific*/
-
 
 .wrong-credentials
 {
@@ -82,9 +97,7 @@
     -jfx-focus-color: -fx-red;
 }
 
-/*Main Screen CSS Styling starts here*/
 
-/*TablPane styling*/
 .tab{
     -fx-background-color: -fx-primary;
     -fx-pref-width : 350;

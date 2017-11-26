@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane prefHeight="188.0" prefWidth="335.0" styleClass="pa" stylesheets="@../styles/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dk3rn.osw.FXMLController">
+<BorderPane prefHeight="188.0" prefWidth="360.0" stylesheets="@../styles/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dk3rn.osw.FXMLController">
    <center>
-      <FlowPane fx:id="flowPaneCalls" onDragDetected="#flowpaneButtons" prefHeight="193.0" prefWidth="297.0" styleClass="flowpane" stylesheets="@../styles/dark-theme.css" BorderPane.alignment="CENTER">
+      <FlowPane fx:id="flowPaneCalls" onDragDetected="#flowpaneButtons" prefHeight="137.0" prefWidth="367.0" styleClass="flowpane" stylesheets="@../styles/dark-theme.css" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </padding></FlowPane>
@@ -18,14 +18,14 @@
       <HBox fx:id="hbox_tgs" prefHeight="18.0" prefWidth="309.0" styleClass="padding-spacing" stylesheets="@../styles/dark-theme.css" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
-      <HBox fx:id="hbox_top" alignment="CENTER" prefHeight="19.0" prefWidth="266.0" styleClass="padding-spacing" stylesheets="@../styles/dark-theme.css" BorderPane.alignment="CENTER">
+      <HBox fx:id="hbox_top" alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="335.0" styleClass="padding-spacing" stylesheets="@../styles/dark-theme.css" BorderPane.alignment="CENTER">
          <children>
-              <Button onAction="#handleButtonAction" prefHeight="20.0" prefWidth="54.0" styleClass="button-other" stylesheets="@../styles/dark-theme.css" text="Call" fx:id="xxxButton" />
-            <TextField fx:id="textCallDMRID" minHeight="-Infinity" prefHeight="26.0" prefWidth="118.0" styleClass="button-other" stylesheets="@../styles/dark-theme.css" />
+            <Button onAction="#handleButtonAction" prefHeight="20.0" prefWidth="54.0" styleClass="button-other" stylesheets="@../styles/dark-theme.css" text="Call" fx:id="xxxButton" />
+            <TextField fx:id="textCallDMRID" minHeight="-Infinity" prefHeight="22.0" prefWidth="118.0" styleClass="button-other" stylesheets="@../styles/dark-theme.css" />
             <Button fx:id="btnCalltypeGC" mnemonicParsing="false" onAction="#btnCalltypeGC" styleClass="button-other" stylesheets="@../styles/dark-theme.css" text="GC" />
             <Button fx:id="btnCalltypePC" mnemonicParsing="false" onAction="#btnCalltypePC" styleClass="button-other" stylesheets="@../styles/dark-theme.css" text="PC" />
             <Button fx:id="btn_redirect" mnemonicParsing="false" styleClass="button-other" text="redirect" />
-            <Button fx:id="btn_settings" mnemonicParsing="false" prefHeight="26.0" prefWidth="48.0" styleClass="button-other" text="settings" />
+            <Button fx:id="btn_settings" mnemonicParsing="false" onAction="#changeSettings" prefHeight="2.0" prefWidth="48.0" styleClass="button-other" text="settings" />
          </children>
       </HBox>
    </top>
