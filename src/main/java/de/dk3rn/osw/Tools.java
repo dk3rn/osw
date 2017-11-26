@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,25 +46,35 @@ public class Tools {
         return list;
     }
      
-    public ArrayList ObservableListToArrayList(ObservableList oal) {
-        ArrayList al = new ArrayList();
-        Iterator iter = oal.iterator();
-        while (iter.hasNext()) {
-            al.add(iter.next());
-        }
-        return al;
-    }
+     
     
-    
-    public ObservableList ArrayListToObservableList(ArrayList al){
-        ObservableList oal = FXCollections.observableArrayList();
-        Iterator iter = al.iterator();
-        while(iter.hasNext()){
-            oal.add(iter.next());
-        }
-        return oal;
+    public ArrayList<HBoxCell> copyToHBoxList(ArrayList<CallContainer> al){
         
+        ArrayList<HBoxCell> hbal = new ArrayList();
+        Iterator<CallContainer> iter = al.iterator();
+       
+        
+        while(iter.hasNext()){
+            CallContainer cc = iter.next();
+            hbal.add(new HBoxCell(cc.getCaption(),cc.getDmrid(),cc.getType()));
+        }
+        return hbal;
     }
+    
+    
+        public ArrayList<CallContainer> copyHBoxListToList(List hbl){
+        
+        ArrayList<CallContainer> cc = new ArrayList();
+        Iterator<HBoxCell> iter = hbl.iterator();
+       
+        
+        while(iter.hasNext()){
+            HBoxCell hbc = iter.next();
+            cc.add(new CallContainer(hbc.dmrid, hbc.type, hbc.name));
+        }
+        return cc;
+    }
+            
      
 
 

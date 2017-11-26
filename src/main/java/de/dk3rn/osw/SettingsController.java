@@ -7,6 +7,7 @@ package de.dk3rn.osw;
  */
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,6 +48,10 @@ public class SettingsController implements Initializable {
     private TextField tf_ip;
     @FXML
     private Button btn_writeConfig;
+    @FXML
+    private TextField tf_name;
+    @FXML
+    private TextField tf_tgdmrid;
 
     
     
@@ -57,44 +62,58 @@ public class SettingsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+       
+        
+       // Setting ConConfig 
        ConfigX xx =ConfigX.getInstance();
-
        tf_dmrid.setText(xx.getDmrid());
        tf_pw.setText(xx.getPassword());
        tf_ip.setText(xx.getIp());
-       
-       
-        ObservableList items = FXCollections.observableArrayList(ConfigX.getInstance().getCalls());
+  
+        // Playing with Calls / TGs
+        ArrayList al = xx.getCalls();
+        ArrayList hbl = new Tools().copyToHBoxList(al);
+        ObservableList myObservableList = FXCollections.observableList(hbl);
+        lv_tgs.setItems(myObservableList);
+        
+        // ChoiceBox
+        cb_calltype.setItems(FXCollections.observableArrayList("Group Call", "Private Call"));
+        cb_calltype.getSelectionModel().select(0);
 
-        // lv_tgs.setItems(items);
-        lv_tgs.setItems(items);
+
+
+       
+
+       
+   
 
     }
 
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//        ObservableList<String> ol = FXCollections.observableArrayList("Group Call", "Private Call");
-//        cb_calltype.setItems(ol);
+
+
     @FXML
     private void removeTGFromList(ActionEvent event) {
         Object selectedItem = lv_tgs.getSelectionModel().getSelectedItem();
         System.out.println(selectedItem);
         lv_tgs.getItems().remove(selectedItem);
-
+        // So far it works
+       
         ArrayList calls = ConfigX.getInstance().getCalls();
+        
+
+
+
         //copy result to calls -- das ist ein recht wilder aufrunf... mal gucken
-        ConfigX.getInstance().setCalls(new Tools().ObservableListToArrayList(lv_tgs.getItems()));
+        ArrayList al = new Tools().copyHBoxListToList(lv_tgs.getItems());
+        ConfigX.getInstance().setCalls(al);
+        
+        
+        
+        
+        
+        
         ConfigX.getInstance().addCallsToPane();
     }
 
@@ -106,7 +125,42 @@ public class SettingsController implements Initializable {
         x.setDmrid(tf_dmrid.getText());
         
         x.writeConConfig();
+        x.genToken();
+        x.writeCallConfig(x.getCalls());
+        x.initialize();
   
+    }
+
+    @FXML
+    private void addTGs(ActionEvent event) {
+        ObservableList ol = lv_tgs.getItems();
+        int dmrid = Integer.parseInt(tf_tgdmrid.getText());
+        int type = 0;
+        
+        String selectedItem = (String) cb_calltype.getSelectionModel().getSelectedItem();
+        System.out.println(selectedItem);
+        
+        if (selectedItem.equals("Private Call"))
+        {
+            type = 1; 
+        }
+        else
+        {
+            type = 0;
+        }
+        
+        HBoxCell hbc = new HBoxCell(tf_name.getText(), dmrid, 0); 
+        ol.add(hbc);
+       
+        ConfigX cX = ConfigX.getInstance();
+        cX.setCalls(new Tools().copyHBoxListToList(ol));
+        cX.writeCallConfig(cX.getCalls());
+        cX.addCallsToPane();
+        
+        
+        
+        
+        
     }
 
 }

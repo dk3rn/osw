@@ -1,7 +1,7 @@
 
 * {
     -fx-primary : #2A2E37;
-    -fx-secondary : #FFFF8D;
+    -fx-secondary : #c4c4c4;
     -fx-primarytext : #B2B2B2;
     -fx-blue: #1976D2;
     -fx-red: #FF0000;
@@ -56,13 +56,16 @@
     -fx-background-radius: 5px;
     -fx-font-size: 10pt;
     -fx-padding: 2 2  2 2;
-    -fx-font-size: 12;
         
 
 }
 
-.text-field{
-        -fx-font-size: 12;
+.textfield .label{
+        -fx-font-size: 5;
+            -fx-padding: 0 0  0 0;
+                -fx-padding: 5;
+    -fx-spacing: 0;
+            
 }
 
 .choice-box .label {
@@ -83,9 +86,11 @@
 }
 
 .text-field
-{
+{ 
+    -fx-border-color: -fx-secondary;
+    -fx-background-color: -fx-primary;
     -fx-text-fill: -fx-primarytext;
-    -fx-font-size : 13pt;
+    -fx-font-size : 9pt;
     -jfx-focus-color: -fx-secondary;
     -fx-text-fill: derive(-fx-secondary, 20%);
 }

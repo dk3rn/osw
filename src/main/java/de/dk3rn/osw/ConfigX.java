@@ -241,7 +241,17 @@ public class ConfigX {
         new Timer().scheduleAtFixedRate(new TimerTask(){
                 @Override public void run(){
                       
-                    try {
+ 
+                    genToken();
+  
+                  }
+        },500,1800000); 
+
+     }
+     
+     
+     public void genToken(){
+                             try {
                         // get new token from os
                         String jsontoken = httph.executePost("", "http://"+ip+"/gettok.cgi");
                         
@@ -269,10 +279,6 @@ public class ConfigX {
                     } catch (Exception ex) {
                         Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-  
-                  }
-        },500,1800000); 
-
      }
      
      public void testFunction() throws IOException{

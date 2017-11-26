@@ -13,7 +13,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.initStyle(StageStyle.UTILITY);
+        //stage.initStyle(StageStyle.UTILITY);
         //stage.initStyle(StageStyle.UNIFIED);
                 
         
