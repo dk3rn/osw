@@ -26,14 +26,27 @@ public class HBoxCell extends HBox {
 
     HBoxCell(String name, int dmrid, int type) {
         super();
+        super.getStyleClass().add("listview");
 
         this.name = name;
         this.dmrid = dmrid;
         this.type = type;
         
         
-        lbl_name.setText("Name: "+ name);
-        lbl_dmrid.setText(" --- DMRID: " + Integer.toString(dmrid));
+        
+
+        String blanks = "";
+        while(6+ name.length() + blanks.length() < 24){
+            blanks = blanks + " "; 
+        }
+        lbl_name.setText("Name: "+ name + blanks);
+        
+        String dmid = Integer.toString(dmrid);
+        blanks = "";
+        while(8+ dmid.length() + blanks.length() < 16){
+            blanks = blanks + " "; 
+        }
+        lbl_dmrid.setText("DMRID: " + dmid + blanks);
         
         String calltype;
         if (type == 0){
@@ -44,7 +57,7 @@ public class HBoxCell extends HBox {
             calltype = "Private Call";
         }
         
-        lbl_type.setText(" --- Calltype: " +calltype);
+        lbl_type.setText("Type: " +calltype);
 
 
        this.getChildren().addAll(lbl_name,lbl_dmrid,lbl_type);

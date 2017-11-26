@@ -19,7 +19,7 @@
       <TextField fx:id="tf_dmrid" layoutX="234.0" layoutY="53.0" styleClass="text-field" stylesheets="@../styles/dark-theme.css" />
       <TextField fx:id="tf_pw" layoutX="234.0" layoutY="90.0" styleClass="textfield" stylesheets="@../styles/dark-theme.css" />
       <TextField fx:id="tf_ip" layoutX="234.0" layoutY="125.0" styleClass="textfield" stylesheets="@../styles/dark-theme.css" />
-      <ListView fx:id="lv_tgs" layoutX="41.0" layoutY="243.0" prefHeight="200.0" prefWidth="416.0" />
+      <ListView fx:id="lv_tgs" layoutX="41.0" layoutY="243.0" prefHeight="200.0" prefWidth="416.0" styleClass="listview" stylesheets="@../styles/dark-theme.css" />
       <Button fx:id="btn_remove" layoutX="431.0" layoutY="212.0" mnemonicParsing="false" onAction="#removeTGFromList" prefHeight="23.0" prefWidth="26.0" styleClass="button-other" stylesheets="@../styles/dark-theme.css" text="Del" />
       <Button fx:id="btn_add" layoutX="393.0" layoutY="212.0" mnemonicParsing="false" onAction="#addTGs" prefHeight="24.0" prefWidth="31.0" styleClass="button-other" stylesheets="@../styles/dark-theme.css" text="Add" />
       <Label layoutX="43.0" layoutY="214.0" prefHeight="23.0" prefWidth="35.0" styleClass="label_input" stylesheets="@../styles/dark-theme.css" text="Name" />

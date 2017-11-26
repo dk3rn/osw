@@ -3,25 +3,15 @@ package de.dk3rn.osw;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 
 public class FXMLController implements Initializable {
 
@@ -73,10 +63,16 @@ public class FXMLController implements Initializable {
         ConfigX.getInstance().setRbmTG(rbmTG);
         rbmTG.refreshTGDisplay(hbox_tgs);
 
+        
         ConfigX.getInstance().setHbox_tgs(hbox_tgs);
         ConfigX.getInstance().setFlowPaneCalls(flowPaneCalls);
         ConfigX.getInstance().initialize();
         ConfigX.getInstance().addCallsToPane();
+        
+        
+        // set group call active
+        initActiveGroupCall();
+
 
     }
 
@@ -113,6 +109,16 @@ public class FXMLController implements Initializable {
         
         calltype = 1; // privateCall
     }
+    
+    private void initActiveGroupCall() {
+        btnCalltypeGC.getStyleClass().clear();
+        btnCalltypeGC.getStyleClass().add("button-other-active");
+        btnCalltypePC.getStyleClass().clear();
+        btnCalltypePC.getStyleClass().add("button-other");
+
+        calltype = 0; //groupcall
+    }
+
 
     @FXML
     private void changeSettings(ActionEvent event) {

@@ -149,7 +149,7 @@ public class SettingsController implements Initializable {
             type = 0;
         }
         
-        HBoxCell hbc = new HBoxCell(tf_name.getText(), dmrid, 0); 
+        HBoxCell hbc = new HBoxCell(tf_name.getText(), dmrid, type); 
         ol.add(hbc);
        
         ConfigX cX = ConfigX.getInstance();

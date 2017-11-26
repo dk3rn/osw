@@ -18,6 +18,13 @@
     
 }
 
+.listview .label{
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+    -fx-border-color: -fx-primary;
+    -fx-font-family: monospace;
+}
+
 .padding-spacing {
     -fx-padding: 5;
     -fx-spacing: 5;
