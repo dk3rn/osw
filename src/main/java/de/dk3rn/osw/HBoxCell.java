@@ -36,7 +36,7 @@ public class HBoxCell extends HBox {
         
 
         String blanks = "";
-        while(6+ name.length() + blanks.length() < 24){
+        while(6+ name.length() + blanks.length() < 21){
             blanks = blanks + " "; 
         }
         lbl_name.setText("Name: "+ name + blanks);

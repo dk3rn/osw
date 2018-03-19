@@ -71,6 +71,8 @@ public class FXMLController implements Initializable {
         ConfigX.getInstance().addCallsToPane();
         ConfigX.getInstance().setLbl_reRoute(lbl_reRoute);
         
+    
+        
         
         // set group call active
         initActiveGroupCall();

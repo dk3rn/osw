@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="188.0" prefWidth="345.0" stylesheets="@../styles/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dk3rn.osw.FXMLController">
+<BorderPane prefHeight="210.0" prefWidth="342.0" stylesheets="@../styles/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dk3rn.osw.FXMLController">
    <center>
-      <FlowPane fx:id="flowPaneCalls" onDragDetected="#flowpaneButtons" prefHeight="107.0" prefWidth="343.0" styleClass="flowpane" stylesheets="@../styles/dark-theme.css" BorderPane.alignment="CENTER">
+      <FlowPane fx:id="flowPaneCalls" onDragDetected="#flowpaneButtons" prefHeight="139.0" prefWidth="340.0" styleClass="flowpane" stylesheets="@../styles/dark-theme.css" BorderPane.alignment="CENTER">
          <padding>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </padding></FlowPane>
@@ -19,7 +19,7 @@
    <bottom>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lbl_reRoute" styleClass="justtextondark" stylesheets="@../styles/dark-theme.css" text="Label  ---- label ---- label ---- label ---- label ---- label -------" />
+            <Label fx:id="lbl_reRoute" prefHeight="17.0" prefWidth="346.0" style="-fx-background-color: grey;" text="Label  ---- label ---- label ---- label ---- label ---- label -------" />
             <HBox fx:id="hbox_tgs" prefHeight="18.0" prefWidth="309.0" styleClass="padding-spacing" stylesheets="@../styles/dark-theme.css" />
          </children>
       </VBox>
@@ -31,7 +31,7 @@
             <TextField fx:id="textCallDMRID" minHeight="-Infinity" prefHeight="26.0" prefWidth="118.0" styleClass="button-other" stylesheets="@../styles/dark-theme.css" />
             <Button fx:id="btnCalltypeGC" mnemonicParsing="false" onAction="#btnCalltypeGC" styleClass="button-other" stylesheets="@../styles/dark-theme.css" text="GC" />
             <Button fx:id="btnCalltypePC" mnemonicParsing="false" onAction="#btnCalltypePC" styleClass="button-other" stylesheets="@../styles/dark-theme.css" text="PC" />
-            <Label prefHeight="17.0" prefWidth="23.0" />
+            <Label prefHeight="17.0" prefWidth="18.0" />
             <Button fx:id="btn_settings" mnemonicParsing="false" onAction="#changeSettings" prefHeight="26.0" prefWidth="61.0" styleClass="button-other" text="settings" />
          </children>
       </HBox>

@@ -187,7 +187,7 @@ public class ConfigX {
 
                 if (!txt.equals("0")) {
                     lbl_reRoute.setVisible(true);
-                    lbl_reRoute.setText("Rerouting TG9 to: " + txt);
+                    lbl_reRoute.setText(" Rerouting TG9 to: " + txt + " TX and all other displayed TGs RX.");
                 } else {
                     lbl_reRoute.setVisible(false);
                 }
@@ -206,25 +206,7 @@ public class ConfigX {
         dmrid = jsonMap.get("dmrid").toString();
         reRoute = jsonMap.get("reroute").toString();
           
-    } 
-  
-//    // get call button with specific fxid
-//    public CallContainer getCall(String fxid){
-//        Iterator<CallContainer> it = calls.iterator();
-//        
-//        while(it.hasNext()){
-//            CallContainer cc = it.next();
-//            if(cc.getFxid().equals(fxid)){
-//                return cc;
-//            }
-//        }
-//
-//        return null;
-//    }
-
-
-
-    
+    }     
     
     // only used once to create initial config file
     // never called during normal operation (this was used during development)

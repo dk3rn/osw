@@ -13,7 +13,8 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.initStyle(StageStyle.UTILITY);
+        //stage.initStyle(StageStyle.UTILITY);
+        stage.initStyle(StageStyle.UNIFIED);
         //stage.initStyle(StageStyle.UNIFIED);
                 
         
@@ -21,7 +22,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add("/styles/dark-theme.css");    
 
-        stage.setTitle("OpenSpot Widget DK3RN/DO8OD");
+        stage.setTitle("OSW DK3RN/DO8OD");
         stage.setScene(scene);
         stage.show();
         
