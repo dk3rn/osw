@@ -18,3 +18,8 @@ I hope it is useful to you
 Peter (dk3rn)
 
 mail at dk3rn.de
+
+
+![](https://github.com/dk3rn/osw/blob/master/osw%20screenshot.png)
+
+![](https://github.com/dk3rn/osw/blob/master/osw%20settings%20screenshot.png)
