@@ -1,7 +1,7 @@
 # osw
 Openspot Widget (OSW)
 
-OSW is a little to remote control tool for SharkRF Openspot (c) written by dk3rn and do8od.
+OSW is a remote control tool for SharkRF Openspot (c) written by dk3rn and do8od.
 It is esspecially useful, if you use a DMR radio, which has no promiscious mode.
 
 The basic idea is to have a small window on your computer, which enables you to switch between TalkGroups (TGs) and reroute TGs
